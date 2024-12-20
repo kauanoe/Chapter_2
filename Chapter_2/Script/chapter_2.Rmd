@@ -30,7 +30,7 @@ library(knitr) # images
 
 ```{r}
 # read in data  
-site <- read_csv(here("Data", "fire_sites.csv")) # sites
+site <- read_csv(here("Chapter_2", "Data", "fire_sites.csv")) # sites
 ```
 
 # Site Map
