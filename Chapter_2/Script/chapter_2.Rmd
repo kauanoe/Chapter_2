@@ -1,0 +1,134 @@
+---
+title: "Chapter_2"
+author: "Kauanoe Greene"
+date: "2024-12-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, 
+                      warning = FALSE, 
+                      fig.path = "../Output/", 
+                      fig.align = "center")
+```
+
+```{r}
+# Libraries  
+library(tidyverse)
+library(dplyr)
+library(tidytext) # clean data
+library(here) # saving data
+library(gganimate) # animation
+library(leaflet) # map
+library(cleanrmd) # html style
+library(gapminder) # plot
+library(hrbrthemes) # theme
+library(knitr) # images
+```
+
+
+```{r}
+# read in data  
+site <- read_csv(here("Data", "fire_sites.csv")) # sites
+```
+
+# Site Map
+
+
+```{r map, fig.align="center"}
+
+# Map of population source sites  
+# coding below is formatted for the html document  
+# allows me to modify title/texts more flexibly  
+# title on map
+# position of title
+# style of title  
+# font adjustments  
+# text color  
+
+map <- leaflet(data = site) %>% # dataset  
+  addTiles() %>% # building map
+  addProviderTiles("Esri.WorldImagery") %>% # visual map type  
+addCircleMarkers(# points for populations
+    lng = -155.274040, # longitude  
+    lat = 19.340402, # latitude  
+    popup = "Hilina Pali Road (HPR)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers    
+  addCircleMarkers(# repeat for all sites listed below  
+    lng = -155.385663,
+    lat = 19.492612, 
+    popup = "SS Viewing (SSV)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers 
+  addCircleMarkers(
+    lng = -155.342876,
+    lat = 19.457093, 
+    popup = "ML (ML)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% 
+  addCircleMarkers(
+    lng = -155.753977,
+    lat = 19.212788, 
+    popup = "Kahuku West (KW)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers 
+  addCircleMarkers(
+    lng = -155.127415,
+    lat = 19.315223, 
+    popup = "Chain of Craters (CC)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers
+  addCircleMarkers(
+    lng = -155.689272,
+    lat = 19.094585, 
+    popup = "Kahuku Paddocks (KP)", # label name popup 
+    radius = 10,
+    color = "red", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers 
+  addCircleMarkers(
+    lng = -159.6536111,
+    lat = 22.0572222, 
+    popup = "Kukui Trail (KT)", # label name popup 
+    radius = 10,
+    color = "purple", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers 
+  addCircleMarkers(
+    lng = -159.761642,
+    lat = 22.079357, 
+    popup = "Polihale State Park (PSP)", # label name popup 
+    radius = 10,
+    color = "purple", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) %>% # color of markers 
+  addCircleMarkers(
+    lng = -159.6652778,
+    lat = 22.0561111, 
+    popup = "Waimea Canyon Road (WCR)", # label name popup 
+    radius = 10,
+    color = "purple", # color of markers 
+    stroke = FALSE, 
+    fillOpacity = 0.7) # color of markers
+ 
+  
+   
+map
+
+```
+
+
+
+
